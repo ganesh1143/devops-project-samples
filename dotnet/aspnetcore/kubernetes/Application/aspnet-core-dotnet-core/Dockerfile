@@ -10,7 +10,7 @@ COPY . ./
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
-FROM microsoft/aspnetcore:1.1
+FROM microsoft/aspnetcore:2.1.0-preview1-bionic
 WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "aspnet-core-dotnet-core.dll"]
